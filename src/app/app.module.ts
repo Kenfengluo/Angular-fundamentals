@@ -9,7 +9,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateEventComponent } from './events/shared/create-event.component';
+import { CreateEventComponent } from './events/event-details/create-event.component';
 import { CustomErrorComponent } from './errors/custom-error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session-component';

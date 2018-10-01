@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from './event.service';
+import { EventService } from '../shared/event.service';
 
 @Component({
   templateUrl: './create-event.component.html',

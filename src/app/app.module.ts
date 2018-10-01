@@ -8,8 +8,11 @@ import { NavbarComponent } from './nav/navbar.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './events/shared/create-event.component';
 import { CustomErrorComponent } from './errors/custom-error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session-component';
 
 @NgModule({
   declarations: [
@@ -19,10 +22,14 @@ import { CustomErrorComponent } from './errors/custom-error.component';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    CustomErrorComponent
+    CustomErrorComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from '../../models/event';
 
 @Component({
   templateUrl: './event-details.component.html',
@@ -8,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventDetailsComponent implements OnInit {
 
-  event: any;
+  event: IEvent;
+  errorMessage: string;
   constructor(private eventService: EventService,
               private route: ActivatedRoute) { }
 

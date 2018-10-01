@@ -4,6 +4,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { CreateEventComponent } from './events/shared/create-event.component';
 import { CustomErrorComponent } from './errors/custom-error.component';
 import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
+import { CreateSessionComponent } from './events/event-details/create-session-component';
 export const appRoutes: Routes = [
   {
     path: 'events/new', component: CreateEventComponent,
@@ -17,10 +18,16 @@ export const appRoutes: Routes = [
     canActivate: [EventRouteActivatorService]
   },
   {
+    path: 'events/session/new', component: CreateSessionComponent
+  },
+  {
     path: '404', component: CustomErrorComponent
   },
   {
     path: '', redirectTo: 'events', pathMatch: 'full'
+  },
+  {
+    path: 'user', loadChildren: './user/user.module#UserModule'
   },
   {
     path: '**', redirectTo: 'events', pathMatch: 'full'

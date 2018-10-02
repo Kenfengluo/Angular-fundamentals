@@ -29,6 +29,11 @@ export class EventService {
       event.sessions = [];
       EVENTS.push(event);
     }
+
+    updateEvent(event: IEvent) {
+      const index = EVENTS.findIndex(x => x.id === event.id);
+      EVENTS[index] = event;
+    }
     private handleError(err: HttpErrorResponse) {
       // in a real world app, we may send the server to some remote logging infrastructure
       // instead of just logging it to the console

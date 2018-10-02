@@ -13,6 +13,7 @@ import { CreateEventComponent } from './events/event-details/create-event.compon
 import { CustomErrorComponent } from './errors/custom-error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session-component';
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CreateSessionComponent } from './events/event-details/create-session-co
     EventDetailsComponent,
     CreateEventComponent,
     CustomErrorComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,

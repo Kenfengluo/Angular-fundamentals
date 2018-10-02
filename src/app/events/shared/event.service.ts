@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { catchError, tap, map} from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { IEvent } from '../../models/event';
+import { IEvent, ISession } from '../../models/event';
 import { constructor } from 'q';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -33,6 +33,25 @@ export class EventService {
     updateEvent(event: IEvent) {
       const index = EVENTS.findIndex(x => x.id === event.id);
       EVENTS[index] = event;
+    }
+    searchSessions(searchTerm: string) {
+      const term = searchTerm.toLocaleLowerCase();
+      let results: ISession[] = [];
+
+      EVENTS.forEach(event => {
+        let matchingSessions = event.sessions.filter(
+          session => session.name.toLocaleLowerCase().includes(term));
+        matchingSessions = matchingSessions.map((session: any) => {
+          session.eventId = event.id;
+          return session;
+        });
+        results = results.concat(matchingSessions);
+      });
+      const emitter = new EventEmitter(true);
+      setTimeout(() => {
+        emitter.emit(results);
+      }, 100);
+      return emitter;
     }
     private handleError(err: HttpErrorResponse) {
       // in a real world app, we may send the server to some remote logging infrastructure

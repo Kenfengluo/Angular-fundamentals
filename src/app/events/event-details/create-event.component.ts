@@ -23,8 +23,8 @@ export class CreateEventComponent implements OnInit {
         city: 'Felicity',
         country: 'AngularIstan'
       },
-      onlineUrl: 'http://ngSpectular.com',
-      imageUrl: 'http://ngSpectular.com/logo.png'
+      onlineUrl: 'http://ngSpectacular.com',
+      imageUrl: 'http://ngSpectacular.com/logo.png'
     };
   }
 

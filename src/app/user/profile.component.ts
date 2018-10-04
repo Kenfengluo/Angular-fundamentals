@@ -34,10 +34,20 @@ export class ProfileComponent implements OnInit {
   cancel() {
     this.router.navigate(['/events']);
   }
+  logOut() {
+    this.authService.logout().subscribe(
+      () => {
+        this.router.navigate(['/user/login']);
+      }
+    );
+  }
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues);
-      this.toastr.success('Profile Saved');
+      this.authService.updateCurrentUser(formValues).subscribe(
+        () => {
+          this.toastr.success('Profile Saved');
+        }
+      );
     }
 }
 }

@@ -41,7 +41,7 @@ const jQuery = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpVoteComponent,
-    LocationValidator
+    LocationValidator,
   ],
   imports: [
     BrowserModule,

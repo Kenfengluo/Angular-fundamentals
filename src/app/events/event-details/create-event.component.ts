@@ -10,6 +10,7 @@ export class CreateEventComponent implements OnInit {
 
   isDirty = true;
   newEvent;
+  errorMessage: string;
   constructor(private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
@@ -29,9 +30,14 @@ export class CreateEventComponent implements OnInit {
   }
 
   saveEvent(formValues) {
-    this.eventService.saveEvent(formValues);
-    this.isDirty = false;
-    this.router.navigate(['/events']);
+    this.eventService.saveEvent(formValues).subscribe(
+      () => {
+        this.isDirty = false;
+        this.router.navigate(['/events']);
+       },
+      error => this.errorMessage = error
+    );
+
   }
   cancel() {
     this.router.navigate(['/events']);

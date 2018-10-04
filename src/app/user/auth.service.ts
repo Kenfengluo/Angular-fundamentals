@@ -58,6 +58,13 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    return this.http.post('/api/logout', {}, this.options);
+    return this.http.post('/api/logout', {}, this.options)
+      .pipe(
+        tap(
+          () => {
+            this.currentUser = null;
+          }
+        )
+      );
   }
 }
